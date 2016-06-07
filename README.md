@@ -6,6 +6,8 @@ This tool consists of two parts.
 
 * ErrDistance is designed to compare the two ratings. It calculates the error distances between the two lists.
 
+The instructions is described in the file documentation for each program.
+
 
 ## License ##
 
