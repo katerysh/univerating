@@ -1,6 +1,6 @@
 # Univerating
 # Description
-This tool consists of two parts.//
+This tool consists of two parts.
 
 * PageRank is the ranking using the algorithm of the reference ranking PageRank. As parameters for ranking, is used data by the respective pages of the universities from Wikipedia.
 
