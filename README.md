@@ -1,6 +1,9 @@
 # Univerating
 # Description
-This tool is designed to rank universities. As parameters for ranking, is used data by the respective pages of the universities from Wikipedia.
+This tool consists of two parts.
+1. PageRank is the ranking using the algorithm of the reference ranking PageRank. As parameters for ranking, is used data by the respective pages of the universities from Wikipedia.
+2. ErrDistance is designed to compare the two ratings. It calculates the error distances between the two lists.
+
 
 ## License ##
 
