@@ -1,0 +1,65 @@
+Australian National University
+Brigham Young University
+Columbia University
+Cornell University
+Dartmouth College
+Duke University
+ETH Zurich
+Florida Atlantic University
+Florida State University
+Georgia Institute of Technology
+Harvard University
+McGill University
+McMaster University
+Michigan State University
+MIT
+Moscow Institute of Physics and Technology
+Moscow State University
+National Nuclear Research University
+National Taiwan University
+New York University
+Novosibirsk State University
+Peking University
+Petrozavodsk State University
+Princeton University
+Queen's University Kingston
+Saint-Petersburg State University
+Seoul National University
+Stanford University
+Syracuse University
+Technische Universitat Munchen
+Texas A&M University
+Universidad Nacional Autonoma de Mexico
+Universidade de Sao Paulo USP
+Universita di Bologna
+Universitat Hamburg
+University of Bristol
+University of British Columbia
+University of California, Berkeley
+University of California, Davis
+University of California, LA
+University of California, Riverside
+University of California, San Diego
+University of California, Santa Cruz
+University of Cambridge
+University of Central Florida
+University of Chicago
+University of Edinburgh
+University of Florida
+University of Georgia
+University of Helsinki
+University of Illinois, Urbana-Champaign
+University of Manchester
+University of Melbourne
+University of Miami
+University of Michigan
+University of Minnesota
+University of North Carolina, Chapel Hill
+University of Oslo
+University of Oxford
+University of Pennsylvania
+University of Tokyo
+University of Toronto
+University of Washington
+Utrecht University
+Yale University
