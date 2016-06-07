@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rank</title>
+    </head>
+    <body>
+        <?php
+        
+            $fts = 'D:\Univer\file.scv';//scv-file to save
+            $frt = "D:\Univer\\enWiki\\enWikiPR.txt";
+            $scd = "D:\Univer\\ruWiki\\ruWiki.txt";
+            
+            include ("errDist.php");
+            include ("uniqList.php");
+            include ("messInList.php");
+        
+            $first = file($frt);
+            $second = file($scd);
+
+            echo "First list: ".$frt."<br/>";
+            echo "Second list: ".$scd."<br/>";
+            
+            echo "<br/>"."Err = ".NumOfMistakes ($first, $second)."<br/>";
+        
+            //rearrangeInList ($first, $second);
+            
+            echo "-------Uniq of First List--------<br/>";
+            echo "Uniq = ".uniq ($first, $second)."<br/>";
+            echo "-------Uniq of Second List--------<br/>";
+            echo "Uniq = ".uniq ($second, $first)."<br/>";
+        ?>
+    </body>
+</html>
