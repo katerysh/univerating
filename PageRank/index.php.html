@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+pagesize.txt editors.txt edits.txt interwiki.txt views.txt obsevers.txt
+rerouting.txt inputLinks.txt outputLinks.txt externalLinks.txt grade.txt
+inToOutLinks.txt
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PageRank</title>
+    </head>
+    <body> 
+        <?php
+        
+        //file with list of objects
+        $loo = "D:\Univer\\ruWiki\\ListOfWiki.txt";
+        //file with value of param for the object
+        $vop = "D:\Univer\\ruWiki\\inToOutLinks.txt";
+        //scv-file to save PR for list from $loo
+        $fts = 'D:\Univer\file3.scv';
+        //txt-file to save ranking list of objects
+        $ftr = 'D:\Univer\file3.txt';
+        
+        include ("countLink.php");
+        include ("linkOnPage.php");
+        include ("exitOf.php");
+        include ("rankInDes.php");
+        
+        //set_time_limit(0);
+        const damp_factor = 0.85;
+        const epsilon = 0.001;
+        const koeff = 1;
+        
+        $list = file($loo);
+        $listNum = file($vop);
+        
+        $iteration = 1; //count of iterations
+        $norm_factor = (1 - damp_factor);
+      
+        $countPages = count($list);
+        $countLinkOnPage = getCountLinkOnPage($countPages,$listNum);
+        $linkOnPage = getLinkOnPages($listNum);     
+        
+        $startWeight = (1/$countPages);
+        
+        /* Initialize the initial array of pagerank's */
+        for ($i = 0; $i <= $countPages-1; $i++) {
+            $curRank[$i] = $startWeight;
+            $prevRank[$i] = $startWeight;
+        }
+        
+        /* Calculate PageRank */
+        while (true)
+        {  
+            for ($i = 0; $i <= $countPages-1; $i++) { 
+                
+                $sum = 0;
+                for ($j = 0; $j <= $countPages-1; $j++) {
+                    if ($linkOnPage[$i][$j]==1) {
+                        $sum +=($curRank[$j] / $countLinkOnPage[$j]); 
+                    }
+                }
+                $curRank[$i] = $sum;
+                $curRank[$i] *= damp_factor;
+                $curRank[$i] += $norm_factor;
+            }
+            
+            if (!statusOfExit($curRank,$prevRank)) {
+                for ($i=0; $i <= count($curRank)-1; $i++) {
+                    $prevRank[$i] = $curRank[$i];
+                }
+                ++$iteration;
+                } else {
+                    break;
+                }
+        }
+        
+        //Output to file
+        for ($i = 0; $i <= count($curRank)-1; $i++) {
+            $pageRank[$i] = $curRank[$i]*koeff;
+                   
+            $aarr = array ($i => $pageRank[$i]);
+            $fp = fopen ($fts,'a');
+            fputcsv($fp,$aarr,';');
+            fclose($fp);
+        }
+        echo "List of objects: ".$loo."<br/>";
+        echo "Value of param for list: ".$vop."<br/>";
+        echo "Files to save: ".$fts.", ".$ftr."<br/>";
+        echo "<br/>"."Count of iterations: ".$iteration."<br/>";
+        
+        //Output to display
+        rankingInDescending ($list, $pageRank);
+        
+        ?>
+    </body>
+</html>
